@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      name: createTable-execSales123
+      author: SteveZ
+      id: 158
+      changes:
+        - createTable:
+            tableName: execSales123
+            column:
+              - name: id
+                type: INTEGER
+              - name: name
+                type: VARCHAR(255)
+        - rollback:
+            dropTable:
+              tableName: execSales123
+  - changeSet:
+      name: addColumn-execSales123-address
+      author: markus
+      id: 159
+      changes:
+        - addColumn:
+            tableName: execSales123
+            column:
+              - name: address
+                type: VARCHAR(255)
+        - rollback:
+            dropColumn:
+              tableName: execSales123
+              columnName: address

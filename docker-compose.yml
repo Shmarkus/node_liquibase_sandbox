@@ -1,0 +1,16 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: node_liquibase_testing
+      MYSQL_USER: yourusername
+      MYSQL_PASSWORD: yoursecurepassword
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+        - "3306:3306"
+    # (this is just an example, not intended to be a production configuration)
